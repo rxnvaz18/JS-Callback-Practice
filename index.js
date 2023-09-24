@@ -5,7 +5,7 @@ const character = newImage('assets/green-character/static.gif')
 let direction = null
 let x = 100;
 let y = 250;
-setInterval(function () {
+ setInterval(function () {
 if (direction === 'west') {
     x = x - 1
 }
@@ -27,7 +27,9 @@ move(character).to(100, 250)
 // starting code to make character move with the DOM event of a user pressing a key
 // e means it contains info on an event occuring
 
-document.addEventListener('keydown', function(e){                
+document.addEventListener('keydown', function(e){ 
+    if(e.repeat) return;     
+ //line above skips any repeat events         
     if(e.key === 'ArrowLeft'){
         direction = 'west'
     }
@@ -41,8 +43,11 @@ document.addEventListener('keydown', function(e){
         direction = 'south'
     }
 })
-
-
+// Now we need something to keep the character from moving after key is released or keyup.
+document.addEventListener('keyup', function(e){
+    direction = null
+    // direction equal to null so that character stops moving when the keyup event happens.
+})
 
 
 
