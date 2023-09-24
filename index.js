@@ -3,7 +3,8 @@ move(inventory).to(0, 0)
 
 const character = newImage('assets/green-character/static.gif')
 
-function atChangeofDirection() {
+// handling direction change of character
+function atChangeofDirection(direction) {
 if(direction === null){
     character.src = 'assets/green-character/static.gif'
 }
@@ -19,10 +20,10 @@ if(direction === 'east'){
 if(direction === 'south'){
     character.src = 'assets/green-character/south.gif'
 } } 
-
 move(character).withArrowKeys(100, 250, atChangeofDirection)
+// refactored code for moving character and handling direction change
 
-
+// paths to images to access by move.js file
 move(newImage('assets/tree.png')).to(200, 450)
 move(newImage('assets/pillar.png')).to(350, 250)
 move(newImage('assets/pine-tree.png')).to(450, 350)
