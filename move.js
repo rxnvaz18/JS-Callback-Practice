@@ -16,23 +16,39 @@ function moveWithArrowKeys(left, bottom, atChangeofDirection){
     
     function moveCharacter(){ 
         if(direction === 'west'){
-            x-=1
+            x-=1 
         }
         if(direction === 'north'){
             y+=1
+            
         }
         if(direction === 'east'){
             x+=1
+    
         }
         if(direction === 'south'){
             y-=1
+            
+        }
+        if(y < 0) {
+            direction = null
+                }
+        if (y > 957) {
+            direction = null
+        }
+        if (x < 0) {
+            direction = null
+        }
+        if(x > 1800) {
+            direction = null
         }
         element.style.left = x + 'px'
         element.style.bottom = y + 'px'
+    
     }
     
     setInterval(moveCharacter, 1)
-    
+       
     document.addEventListener('keydown', function(e) {
         if(e.repeat) return;
     
@@ -49,6 +65,10 @@ function moveWithArrowKeys(left, bottom, atChangeofDirection){
             direction = 'south'
         }
         atChangeofDirection(direction)
+        if(direction){
+
+
+        }
     })
     
     document.addEventListener('keyup', function(e){
