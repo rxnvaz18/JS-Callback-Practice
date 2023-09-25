@@ -24,9 +24,10 @@ if(direction === 'south'){
 
 move(character).withArrowKeys(100, 250, atChangeofDirection)
 
+
 // refactored code for moving character and handling direction change
 
-// paths to images to access by move.js file
+// paths and positions on page of images to access by move.js file
 move(newImage('assets/tree.png')).to(200, 450)
 move(newImage('assets/pillar.png')).to(350, 250)
 move(newImage('assets/pine-tree.png')).to(450, 350)

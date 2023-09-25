@@ -1,5 +1,6 @@
 function move(element) {
     element.style.position = 'fixed'
+  
 
     function moveToCoordinates(left,bottom) {
         element.style.left = left + 'px'
@@ -44,14 +45,13 @@ function moveWithArrowKeys(left, bottom, atChangeofDirection){
         }
         element.style.left = x + 'px'
         element.style.bottom = y + 'px'
-    
+        element.style.zIndex = 1
     }
     
     setInterval(moveCharacter, 1)
        
     document.addEventListener('keydown', function(e) {
         if(e.repeat) return;
-    
         if(e.key === 'ArrowLeft'){
             direction = 'west'
         }
@@ -65,10 +65,6 @@ function moveWithArrowKeys(left, bottom, atChangeofDirection){
             direction = 'south'
         }
         atChangeofDirection(direction)
-        if(direction){
-
-
-        }
     })
     
     document.addEventListener('keyup', function(e){
